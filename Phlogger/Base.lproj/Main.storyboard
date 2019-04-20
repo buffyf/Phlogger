@@ -103,9 +103,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="eeP-pT-pRf">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="217"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="68M-KR-rZa">
+                                    <rect key="frame" x="0.0" y="70" width="375" height="77"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J6g-MH-di4">
+                                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="77"/>
+                                            <state key="normal" image="photo-camera"/>
+                                            <connections>
+                                                <action selector="cameraTapped:" destination="72k-ia-qNE" eventType="touchUpInside" id="clb-vQ-CnO"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ia-8B-bG8">
+                                            <rect key="frame" x="187.5" y="0.0" width="187.5" height="77"/>
+                                            <state key="normal" image="add"/>
+                                            <connections>
+                                                <action selector="plusTapped:" destination="72k-ia-qNE" eventType="touchUpInside" id="wXi-Cc-hwv"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" red="0.29803921568627451" green="0.75686274509803919" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="68M-KR-rZa" firstAttribute="top" secondItem="eeP-pT-pRf" secondAttribute="top" constant="70" id="1hm-Mr-YBB"/>
+                                <constraint firstAttribute="trailing" secondItem="68M-KR-rZa" secondAttribute="trailing" id="GUw-X1-FMJ"/>
+                                <constraint firstAttribute="bottom" secondItem="68M-KR-rZa" secondAttribute="bottom" constant="70" id="aDR-4W-ca6"/>
+                                <constraint firstItem="68M-KR-rZa" firstAttribute="leading" secondItem="eeP-pT-pRf" secondAttribute="leading" id="j6Q-ub-bFY"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="pTT-kw-gks">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="245" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pTT-kw-gks" id="4sb-P8-liK">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -119,10 +151,15 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Item" id="PkP-yZ-Bxm"/>
+                    <connections>
+                        <outlet property="whiteCameraButton" destination="J6g-MH-di4" id="ahJ-Ky-zov"/>
+                        <outlet property="whitePlusButton" destination="6ia-8B-bG8" id="cfG-If-52H"/>
+                        <segue destination="VaU-aQ-zcu" kind="presentation" identifier="goToNew" id="B5a-dL-A8I"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d2z-jo-j7h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1837" y="-755"/>
+            <point key="canvasLocation" x="1836" y="-755.17241379310349"/>
         </scene>
         <!--Create Journal View Controller-->
         <scene sceneID="ZtI-ub-Lvo">
@@ -153,4 +190,8 @@
             <point key="canvasLocation" x="-1087" y="-417"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="add" width="512" height="512"/>
+        <image name="photo-camera" width="512" height="512"/>
+    </resources>
 </document>
