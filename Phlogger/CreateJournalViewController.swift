@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import RealmSwift
 
-class CreateJournalViewController: UIViewController {
+class CreateJournalViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var aboveNavBarView: UIView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
@@ -17,6 +18,11 @@ class CreateJournalViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var setDateButton: UIButton!
     @IBOutlet weak var stackView: UIStackView!
+    
+    var date = Date()
+    var imagePicker = UIImagePickerController()
+    var images : [UIImage] = []
+    var startWithCamera = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +37,26 @@ class CreateJournalViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(KeyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(KeyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        imagePicker.delegate = self
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool){
+        updateDate()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if startWithCamera {
+            startWithCamera = false
+            blackCameraTapped("")
+        }
+    }
+    
+    func updateDate() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "E, MMM d, yyyy"
+        navBar.topItem?.title = formatter.string(from: date)
     }
     
     @objc func KeyboardWillHide(notification: Notification){
@@ -55,16 +80,64 @@ class CreateJournalViewController: UIViewController {
     }
     
     @IBAction func cancelTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func saveTapped(_ sender: Any) {
+        if let realm = try? Realm() {
+            let entry = Entry()
+            entry.text = journalTextView.text
+            entry.date = date
+            for image in images {
+                let picture = Picture(image: image)
+                entry.pictures.append(picture)
+                picture.entry = entry
+            }
+            try? realm.write {
+                realm.add(entry)
+            }
+            dismiss(animated: true, completion: nil)
+        }
     }
     @IBAction func setDateTapped(_ sender: Any) {
+        journalTextView.isHidden = false
+        datePicker.isHidden = true
+        setDateButton.isHidden = true
+        date = datePicker.date
+        updateDate()
     }
+    
     @IBAction func blackCalendarTapped(_ sender: Any) {
+        journalTextView.isHidden = true
+        datePicker.isHidden = false
+        setDateButton.isHidden = false
+        datePicker.date = date
+        
     }
     @IBAction func blackCameraTapped(_ sender: Any) {
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+        
+        
     }
     
-    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
+        //lecture 44 Adding Images
+        if let chosenImage = info[UIImagePickerControllerOriginalImage] as?
+            UIImage {
+            images.append(chosenImage)
+            let imageView = UIImageView()
+            imageView.heightAnchor.constraint(equalToConstant: 70.0).isActive = true
+            imageView.widthAnchor.constraint(equalToConstant: 70.0).isActive = true
+            imageView.image = chosenImage
+            imageView.contentMode = .scaleAspectFill
+            imageView.clipsToBounds = true
+            stackView.addArrangedSubview(imageView)
+            imagePicker.dismiss(animated: true){
+                //animation
+            }
+            
+        }
+    }
 
 }

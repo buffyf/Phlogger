@@ -15,9 +15,13 @@
 		A45717C6226BD03F00B66E01 /* JournalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45717C5226BD03F00B66E01 /* JournalTableViewController.swift */; };
 		A45717C8226BD07000B66E01 /* CreateJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45717C7226BD07000B66E01 /* CreateJournalViewController.swift */; };
 		A45717CA226BD0A400B66E01 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45717C9226BD0A400B66E01 /* PhotoCollectionViewController.swift */; };
+		A46B41A02272558400558AAF /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46B419F2272558400558AAF /* Models.swift */; };
+		C9CB7C4B79C66775A3BB8314 /* Pods_Phlogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B278BBD246B3EC0E455F292 /* Pods_Phlogger.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B278BBD246B3EC0E455F292 /* Pods_Phlogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Phlogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B481FE03C17DA12186D688B /* Pods-Phlogger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Phlogger.debug.xcconfig"; path = "Target Support Files/Pods-Phlogger/Pods-Phlogger.debug.xcconfig"; sourceTree = "<group>"; };
 		A45717AE226BCC3000B66E01 /* Phlogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Phlogger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45717B1226BCC3000B66E01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A45717B6226BCC3000B66E01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -28,6 +32,8 @@
 		A45717C5226BD03F00B66E01 /* JournalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableViewController.swift; sourceTree = "<group>"; };
 		A45717C7226BD07000B66E01 /* CreateJournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateJournalViewController.swift; sourceTree = "<group>"; };
 		A45717C9226BD0A400B66E01 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
+		A46B419F2272558400558AAF /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		FDC177E90446ECE5550D798E /* Pods-Phlogger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Phlogger.release.xcconfig"; path = "Target Support Files/Pods-Phlogger/Pods-Phlogger.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9CB7C4B79C66775A3BB8314 /* Pods_Phlogger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2CBAD3BEA8462CA3382A2D20 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7B278BBD246B3EC0E455F292 /* Pods_Phlogger.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8514EA6205E6D1930F4415E6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8B481FE03C17DA12186D688B /* Pods-Phlogger.debug.xcconfig */,
+				FDC177E90446ECE5550D798E /* Pods-Phlogger.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		A45717A5226BCC3000B66E01 = {
 			isa = PBXGroup;
 			children = (
 				A45717B0226BCC3000B66E01 /* Phlogger */,
 				A45717AF226BCC3000B66E01 /* Products */,
+				8514EA6205E6D1930F4415E6 /* Pods */,
+				2CBAD3BEA8462CA3382A2D20 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +88,7 @@
 			children = (
 				A45717B1226BCC3000B66E01 /* AppDelegate.swift */,
 				A45717C7226BD07000B66E01 /* CreateJournalViewController.swift */,
+				A46B419F2272558400558AAF /* Models.swift */,
 				A45717C9226BD0A400B66E01 /* PhotoCollectionViewController.swift */,
 				A45717C5226BD03F00B66E01 /* JournalTableViewController.swift */,
 				A45717C3226BD00E00B66E01 /* JournalDetailViewController.swift */,
@@ -80,9 +107,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A45717C0226BCC3100B66E01 /* Build configuration list for PBXNativeTarget "Phlogger" */;
 			buildPhases = (
+				D1AB07AC85E6A0C7D0E3436C /* [CP] Check Pods Manifest.lock */,
 				A45717AA226BCC3000B66E01 /* Sources */,
 				A45717AB226BCC3000B66E01 /* Frameworks */,
 				A45717AC226BCC3000B66E01 /* Resources */,
+				083700C2EDEC5AF866773C80 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -139,6 +168,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		083700C2EDEC5AF866773C80 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Phlogger/Pods-Phlogger-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Toucan/Toucan.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toucan.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Phlogger/Pods-Phlogger-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1AB07AC85E6A0C7D0E3436C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Phlogger-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A45717AA226BCC3000B66E01 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -147,6 +227,7 @@
 				A45717CA226BD0A400B66E01 /* PhotoCollectionViewController.swift in Sources */,
 				A45717B2226BCC3000B66E01 /* AppDelegate.swift in Sources */,
 				A45717C6226BD03F00B66E01 /* JournalTableViewController.swift in Sources */,
+				A46B41A02272558400558AAF /* Models.swift in Sources */,
 				A45717C8226BD07000B66E01 /* CreateJournalViewController.swift in Sources */,
 				A45717C4226BD00E00B66E01 /* JournalDetailViewController.swift in Sources */,
 			);
@@ -292,6 +373,7 @@
 		};
 		A45717C1226BCC3100B66E01 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B481FE03C17DA12186D688B /* Pods-Phlogger.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -310,6 +392,7 @@
 		};
 		A45717C2226BCC3100B66E01 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDC177E90446ECE5550D798E /* Pods-Phlogger.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
